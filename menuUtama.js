@@ -1,6 +1,6 @@
-import {banner} from './banner.js';  
-import {sleep} from './banner.js'
-import {prompt} from './banner.js'
+import {banner} from './globalVariabel.js';  
+import {sleep} from './globalVariabel.js'
+import {prompt} from './globalVariabel.js'
 import chalk from 'chalk'
 
 // function menuUtama() {
