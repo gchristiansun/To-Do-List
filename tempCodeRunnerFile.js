@@ -1,2 +1,1 @@
-import banner from './banner.js';
-banner();
+import chalk from 'chalk'

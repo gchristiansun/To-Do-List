@@ -1,4 +1,4 @@
-import banner from './banner.js';
-import PromptSync from 'prompt-sync'; 
+import {banner} from './banner.js';
+import chalk from 'chalk'
 
 banner();

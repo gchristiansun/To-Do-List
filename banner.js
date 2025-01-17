@@ -1,4 +1,6 @@
-export default function banner() {
+import PromptSync from 'prompt-sync'
+
+export function banner() {
     console.log("+==========================+")
     console.log("|                          |")
     console.log("|                          |")
@@ -7,3 +9,10 @@ export default function banner() {
     console.log("|                          |")
     console.log("+==========================+")
 }
+
+export function sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+const prompt = PromptSync()
+export {prompt}

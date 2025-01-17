@@ -1,23 +1,44 @@
-import banner from './banner.js';
-import PromptSync from 'prompt-sync';   
+import {banner} from './banner.js';  
+import {sleep} from './banner.js'
+import {prompt} from './banner.js'
+import chalk from 'chalk'
 
-banner();
+// function menuUtama() {
+//     console.log("[+] Selamat datang User")
+//     console.log("[1] Planned")
+//     console.log("[2] Task")
+//     console.log("[3] Profile")
+//     console.log("----------------------------")
+// }
 
-const prompt = PromptSync()
+export function menuUtama() {
+    async function choice() {
+        while (true) {
+            banner();
+            console.log("[+] Selamat datang User")
+            console.log("[1] Planned")
+            console.log("[2] Task")
+            console.log("[3] Profile")
+            console.log("----------------------------")
 
-console.log("[+] Selamat datang User")
-console.log("[1] Planned")
-console.log("[2] Task")
-console.log("[3] Profile")
-console.log("----------------------------")
-let pilihan = prompt("Pilih menu: ")
+            let pilihan = prompt("Pilih menu: ")
 
-if (pilihan == "1") {
-
-}
-else if (pilihan == "2") {
-
-}
-else if (pilihan == "3") {
-
-}
+            if (pilihan == "1") {
+                break
+            }
+            else if (pilihan == "2") {
+                break
+            }
+            else if (pilihan == "3") {
+                break
+            }
+            else {
+                console.log(chalk.red("=> Inputan tidak valid"));
+                await sleep(1000);
+                console.clear()
+            }
+        }
+    }
+    choice()
+};
+menuUtama()
