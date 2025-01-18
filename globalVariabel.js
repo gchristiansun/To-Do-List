@@ -15,4 +15,6 @@ export function sleep(ms) {
 }
 
 const prompt = PromptSync()
+let planned = [];
+export {planned}
 export {prompt}
