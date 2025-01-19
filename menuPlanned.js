@@ -2,25 +2,20 @@ import {planned} from './globalVariabel.js';
 import chalk from 'chalk'
 import {prompt} from './globalVariabel.js';
 import {menuUtama} from './mainMenu.js';
+import {displayPlanned} from './globalVariabel.js';
 
 export function menuPlanned() {
     console.clear();
     while (true) {
         console.log("--------------Jadwal Anda-------------");
-        console.log("--------------------------------------");
-        console.log(chalk.blue("ID - Kegiatan - Tanggal/Bulan/Tahun - Jam"));
         if (planned.length !== 0) {
-            for (let i = 0; i < planned.length; i++) {
-                console.log(`${i + 1}. ${planned[i][0]} - ${planned[i][1]}/${planned[i][2]}/${planned[i][3]} - ${planned[i][4]}`);
-            }
-            console.log("--------------------------------------");
+            displayPlanned()
         }
         else if (planned.length === 0) {
             console.log("")
             console.log(chalk.blue("=> Belum ada Jadwal"));
             console.log("")
             console.log("--------------------------------------");
-
         }
         console.log("[1] Tambahkan Jadwal");
         console.log("[2] Edit Jadwal");
@@ -32,13 +27,8 @@ export function menuPlanned() {
         if (option == 1)  {
             console.clear();
             console.log("--------------Jadwal Anda-------------");
-            console.log("--------------------------------------");
-            console.log(chalk.blue("ID - Kegiatan - Tanggal/Bulan/Tahun - Jam"));
             if (planned.length != 0) {
-                for (let i = 0; i < planned.length; i++) {
-                    console.log(`${i + 1}. ${planned[i][0]} - ${planned[i][1]}/${planned[i][2]}/${planned[i][3]} - ${planned[i][4]}`);
-                }
-                console.log("--------------------------------------");
+                displayPlanned()
             }
             else if (planned.length == 0) {
                 console.log("")
@@ -46,7 +36,7 @@ export function menuPlanned() {
                 console.log("")
                 console.log("--------------------------------------");
             }
-
+            console.log("[>] Kembali")
             while (true) {
                 var activity = prompt("Kegiatan: ");
                 if (activity == ">") {
@@ -57,19 +47,16 @@ export function menuPlanned() {
                     prompt("Tekan Enter untuk melanjutkan")
                     console.clear()
                     console.log("--------------Jadwal Anda-------------");
-                    console.log("--------------------------------------");
-                    console.log(chalk.blue("ID - Kegiatan - Tanggal/Bulan/Tahun - Jam"));
                     if (planned.length != 0) {
-                        for (let i = 0; i < planned.length; i++) {
-                            console.log(`${i + 1}. ${planned[i][0]} - ${planned[i][1]}/${planned[i][2]}/${planned[i][3]} - ${planned[i][4]}`);
-                        }
-                        console.log("--------------------------------------");
+                        displayPlanned()
+                        console.log("[>] Kembali")
                     }
                     else if (planned.length == 0) {
                         console.log("")
                         console.log(chalk.blue("=> Belum ada Jadwal"));
                         console.log("")
                         console.log("--------------------------------------");
+                        console.log("[>] Kembali")
                     }
                 }
                 else {
@@ -86,13 +73,9 @@ export function menuPlanned() {
                     prompt("Tekan Enter untuk melanjutkan")
                     console.clear()
                     console.log("--------------Jadwal Anda-------------");
-                    console.log("--------------------------------------");
-                    console.log(chalk.blue("ID - Kegiatan - Tanggal/Bulan/Tahun - Jam"));
                     if (planned.length != 0) {
-                        for (let i = 0; i < planned.length; i++) {
-                            console.log(`${i + 1}. ${planned[i][0]} - ${planned[i][1]}/${planned[i][2]}/${planned[i][3]} - ${planned[i][4]}`);
-                        }
-                        console.log("--------------------------------------");
+                        displayPlanned()
+                        console.log("[>] Kembali")
                         console.log(`Kegiatan: ${activity}`);
                     }
                     else if (planned.length == 0) {
@@ -100,6 +83,7 @@ export function menuPlanned() {
                         console.log(chalk.blue("=> Belum ada Jadwal"));
                         console.log("")
                         console.log("--------------------------------------");
+                        console.log("[>] Kembali")
                         console.log(`Kegiatan: ${activity}`);
                     }
                 }
@@ -117,13 +101,9 @@ export function menuPlanned() {
                     prompt("Tekan Enter untuk melanjutkan")
                     console.clear()
                     console.log("--------------Jadwal Anda-------------");
-                    console.log("--------------------------------------");
-                    console.log(chalk.blue("ID - Kegiatan - Tanggal/Bulan/Tahun - Jam"));
                     if (planned.length != 0) {
-                        for (let i = 0; i < planned.length; i++) {
-                            console.log(`${i + 1}. ${planned[i][0]} - ${planned[i][1]}/${planned[i][2]}/${planned[i][3]} - ${planned[i][4]}`);
-                        }
-                        console.log("--------------------------------------");
+                        displayPlanned()
+                        console.log("[>] Kembali")
                         console.log(`Kegiatan: ${activity}`);
                         console.log(`Tanggal: ${tanggal}`);
                     }
@@ -132,6 +112,7 @@ export function menuPlanned() {
                         console.log(chalk.blue("=> Belum ada Jadwal"));
                         console.log("")
                         console.log("--------------------------------------");
+                        console.log("[>] Kembali")
                         console.log(`Kegiatan: ${activity}`);
                         console.log(`Tanggal: ${tanggal}`);
                     }
@@ -150,13 +131,9 @@ export function menuPlanned() {
                     prompt("Tekan Enter untuk melanjutkan")
                     console.clear()
                     console.log("--------------Jadwal Anda-------------");
-                    console.log("--------------------------------------");
-                    console.log(chalk.blue("ID - Kegiatan - Tanggal/Bulan/Tahun - Jam"));
                     if (planned.length != 0) {
-                        for (let i = 0; i < planned.length; i++) {
-                            console.log(`${i + 1}. ${planned[i][0]} - ${planned[i][1]}/${planned[i][2]}/${planned[i][3]} - ${planned[i][4]}`);
-                        }
-                        console.log("--------------------------------------");
+                        displayPlanned()
+                        console.log("[>] Kembali")
                         console.log(`Kegiatan: ${activity}`);
                         console.log(`Tanggal: ${tanggal}`);
                         console.log(`Bulan: ${bulan}`);
@@ -166,6 +143,7 @@ export function menuPlanned() {
                         console.log(chalk.blue("=> Belum ada Jadwal"));
                         console.log("")
                         console.log("--------------------------------------");
+                        console.log("[>] Kembali")
                         console.log(`Kegiatan: ${activity}`);
                         console.log(`Tanggal: ${tanggal}`);
                         console.log(`Bulan: ${bulan}`);
@@ -185,13 +163,9 @@ export function menuPlanned() {
                     prompt("Tekan Enter untuk melanjutkan")
                     console.clear()
                     console.log("--------------Jadwal Anda-------------");
-                        console.log("--------------------------------------");
-                        console.log(chalk.blue("ID - Kegiatan - Tanggal/Bulan/Tahun - Jam"));
                         if (planned.length != 0) {
-                            for (let i = 0; i < planned.length; i++) {
-                                console.log(`${i + 1}. ${planned[i][0]} - ${planned[i][1]}/${planned[i][2]}/${planned[i][3]} - ${planned[i][4]}`);
-                            }
-                            console.log("--------------------------------------");
+                            displayPlanned()
+                            console.log("[>] Kembali")
                             console.log(`Kegiatan: ${activity}`);
                             console.log(`Tanggal: ${tanggal}`);
                             console.log(`Bulan: ${bulan}`);
@@ -202,6 +176,7 @@ export function menuPlanned() {
                             console.log(chalk.blue("=> Belum ada Jadwal"));
                             console.log("")
                             console.log("--------------------------------------");
+                            console.log("[>] Kembali")
                             console.log(`Kegiatan: ${activity}`);
                             console.log(`Tanggal: ${tanggal}`);
                             console.log(`Bulan: ${bulan}`);
@@ -223,24 +198,19 @@ export function menuPlanned() {
                 console.clear();
             }
             else {
+                console.clear();
                 console.log("--------------Jadwal Anda-------------");
-                console.log("--------------------------------------");
-                console.log(chalk.blue("ID - Kegiatan - Tanggal/Bulan/Tahun - Jam"));
-                for (let i = 0; i < planned.length; i++) {
-                    console.log(`${i + 1}. ${planned[i][0]} - ${planned[i][1]}/${planned[i][2]}/${planned[i][3]} - ${planned[i][4]}`);
-                }
-                console.log("--------------------------------------");
+                displayPlanned()
+                console.log("[>] Kembali")
                 let id = prompt("Pilih ID: ")
                 console.clear()
+                let idDitemukan = false
                 for (let i = 0; i < planned.length; i++) {
                     if (i == id - 1) {
                         console.clear();
                         console.log("--------------Jadwal Anda-------------");
-                        console.log("--------------------------------------");
-                        console.log(chalk.blue("ID - Kegiatan - Tanggal/Bulan/Tahun - Jam"));
-                        console.log(`${i + 1}. ${planned[i][0]} - ${planned[i][1]}/${planned[i][2]}/${planned[i][3]} - ${planned[i][4]}`)
-                        console.log("--------------------------------------");
-
+                        displayPlanned()
+                        console.log("[>] Kembali")
                         while (true) {
                             var activity = prompt("Kegiatan: ");
                             if (activity == ">") {
@@ -251,19 +221,17 @@ export function menuPlanned() {
                                 prompt("Tekan Enter untuk melanjutkan")
                                 console.clear()
                                 console.log("--------------Jadwal Anda-------------");
-                                console.log("--------------------------------------");
-                                console.log(chalk.blue("ID - Kegiatan - Tanggal/Bulan/Tahun - Jam"));
                                 if (planned.length != 0) {
-                                    for (let i = 0; i < planned.length; i++) {
-                                        console.log(`${i + 1}. ${planned[i][0]} - ${planned[i][1]}/${planned[i][2]}/${planned[i][3]} - ${planned[i][4]}`);
-                                    }
-                                    console.log("--------------------------------------");
+                                    displayPlanned()
+                                    console.log("[>] Kembali")
                                 }
                                 else if (planned.length == 0) {
                                     console.log("")
                                     console.log(chalk.blue("=> Belum ada Jadwal"));
                                     console.log("")
                                     console.log("--------------------------------------");
+                                    console.log("[>] Kembali")
+
                                 }
                             }
                             else {
@@ -280,13 +248,9 @@ export function menuPlanned() {
                                 prompt("Tekan Enter untuk melanjutkan")
                                 console.clear()
                                 console.log("--------------Jadwal Anda-------------");
-                                console.log("--------------------------------------");
-                                console.log(chalk.blue("ID - Kegiatan - Tanggal/Bulan/Tahun - Jam"));
                                 if (planned.length != 0) {
-                                    for (let i = 0; i < planned.length; i++) {
-                                        console.log(`${i + 1}. ${planned[i][0]} - ${planned[i][1]}/${planned[i][2]}/${planned[i][3]} - ${planned[i][4]}`);
-                                    }
-                                    console.log("--------------------------------------");
+                                    displayPlanned()
+                                    console.log("[>] Kembali")
                                     console.log(`Kegiatan: ${activity}`);
                                 }
                                 else if (planned.length == 0) {
@@ -294,6 +258,7 @@ export function menuPlanned() {
                                     console.log(chalk.blue("=> Belum ada Jadwal"));
                                     console.log("")
                                     console.log("--------------------------------------");
+                                    console.log("[>] Kembali")
                                     console.log(`Kegiatan: ${activity}`);
                                 }
                             }
@@ -311,13 +276,9 @@ export function menuPlanned() {
                                 prompt("Tekan Enter untuk melanjutkan")
                                 console.clear()
                                 console.log("--------------Jadwal Anda-------------");
-                                console.log("--------------------------------------");
-                                console.log(chalk.blue("ID - Kegiatan - Tanggal/Bulan/Tahun - Jam"));
                                 if (planned.length != 0) {
-                                    for (let i = 0; i < planned.length; i++) {
-                                        console.log(`${i + 1}. ${planned[i][0]} - ${planned[i][1]}/${planned[i][2]}/${planned[i][3]} - ${planned[i][4]}`);
-                                    }
-                                    console.log("--------------------------------------");
+                                    displayPlanned()
+                                    console.log("[>] Kembali")
                                     console.log(`Kegiatan: ${activity}`);
                                     console.log(`Tanggal: ${tanggal}`);
                                 }
@@ -326,6 +287,7 @@ export function menuPlanned() {
                                     console.log(chalk.blue("=> Belum ada Jadwal"));
                                     console.log("")
                                     console.log("--------------------------------------");
+                                    console.log("[>] Kembali")
                                     console.log(`Kegiatan: ${activity}`);
                                     console.log(`Tanggal: ${tanggal}`);
                                 }
@@ -344,13 +306,9 @@ export function menuPlanned() {
                                 prompt("Tekan Enter untuk melanjutkan")
                                 console.clear()
                                 console.log("--------------Jadwal Anda-------------");
-                                console.log("--------------------------------------");
-                                console.log(chalk.blue("ID - Kegiatan - Tanggal/Bulan/Tahun - Jam"));
                                 if (planned.length != 0) {
-                                    for (let i = 0; i < planned.length; i++) {
-                                        console.log(`${i + 1}. ${planned[i][0]} - ${planned[i][1]}/${planned[i][2]}/${planned[i][3]} - ${planned[i][4]}`);
-                                    }
-                                    console.log("--------------------------------------");
+                                    displayPlanned()
+                                    console.log("[>] Kembali")
                                     console.log(`Kegiatan: ${activity}`);
                                     console.log(`Tanggal: ${tanggal}`);
                                     console.log(`Bulan: ${bulan}`);
@@ -360,6 +318,7 @@ export function menuPlanned() {
                                     console.log(chalk.blue("=> Belum ada Jadwal"));
                                     console.log("")
                                     console.log("--------------------------------------");
+                                    console.log("[>] Kembali")
                                     console.log(`Kegiatan: ${activity}`);
                                     console.log(`Tanggal: ${tanggal}`);
                                     console.log(`Bulan: ${bulan}`);
@@ -379,13 +338,9 @@ export function menuPlanned() {
                                 prompt("Tekan Enter untuk melanjutkan")
                                 console.clear()
                                 console.log("--------------Jadwal Anda-------------");
-                                    console.log("--------------------------------------");
-                                    console.log(chalk.blue("ID - Kegiatan - Tanggal/Bulan/Tahun - Jam"));
                                     if (planned.length != 0) {
-                                        for (let i = 0; i < planned.length; i++) {
-                                            console.log(`${i + 1}. ${planned[i][0]} - ${planned[i][1]}/${planned[i][2]}/${planned[i][3]} - ${planned[i][4]}`);
-                                        }
-                                        console.log("--------------------------------------");
+                                    displayPlanned()
+                                        console.log("[>] Kembali")
                                         console.log(`Kegiatan: ${activity}`);
                                         console.log(`Tanggal: ${tanggal}`);
                                         console.log(`Bulan: ${bulan}`);
@@ -396,7 +351,8 @@ export function menuPlanned() {
                                         console.log(chalk.blue("=> Belum ada Jadwal"));
                                         console.log("")
                                         console.log("--------------------------------------");
-                                        console.log(`Kegiatan: ${activity}`);
+                                        console.log("[>] Kembali")
+                                        console.log(`Kegiatan: ${activity}`);   
                                         console.log(`Tanggal: ${tanggal}`);
                                         console.log(`Bulan: ${bulan}`);
                                         console.log(`Tahun: ${tahun}`);
@@ -406,20 +362,25 @@ export function menuPlanned() {
                                 break
                             }
                         }
-                    }
-                    else if (id == ">") {
-                        return menuPlanned()
-                    }
-                    else {
-                        console.log(chalk.red("=> ID tidak valid"));
-                        prompt("Tekan Enter untuk melanjutkan")
+                        idDitemukan = true
+                        planned.splice(i, 1, [activity, tanggal, bulan, tahun, jam])
                         console.clear()
-                        break
+
                     }
                 }
-                return menuPlanned()
+                if (id == ">") {
+                    return menuPlanned()
+                }
+                else if (idDitemukan == false) {
+                    console.log("--------------Jadwal Anda-------------");
+                    displayPlanned()
+                    console.log("[>] Kembali")
+                    console.log(chalk.red("=> ID tidak valid"));
+                    prompt("Tekan Enter untuk melanjutkan")
+                    console.clear()
+                    return menuPlanned()
+                }
             }
-            planned.splice(0, i, [activity, tanggal, bulan, tahun, jam])
         }
         else if (option == 3) {
             if (planned.length == 0) {
@@ -430,14 +391,8 @@ export function menuPlanned() {
             else {
                 console.clear();
                 console.log("--------------Jadwal Anda-------------");
-                console.log("--------------------------------------");
-                console.log(chalk.blue("ID - Kegiatan - Tanggal/Bulan/Tahun - Jam"));
-
-                for (let i = 0; i < planned.length; i++) {
-                    console.log(`${i + 1}. ${planned[i][0]} - ${planned[i][1]}/${planned[i][2]}/${planned[i][3]} - ${planned[i][4]}`);
-                }
-                console.log("--------------------------------------");
-
+                displayPlanned()
+                console.log("[>] Kembali")
                 let id = prompt("Pilih ID: ")
                 let idIsFind = false
                 for (let j = 0; j < planned.length; j++) {
