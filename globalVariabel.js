@@ -10,10 +10,6 @@ export function banner() {
     console.log("+==========================+")
 }
 
-export function sleep(ms) {
-    return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
 const prompt = PromptSync()
 let planned = [];
 export {planned}

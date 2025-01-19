@@ -1,5 +1,4 @@
 import {banner} from './globalVariabel.js';  
-import {sleep} from './globalVariabel.js'
 import {prompt} from './globalVariabel.js'
 import {menuPlanned} from './menuPlanned.js';
 import chalk from 'chalk'
@@ -14,33 +13,30 @@ import chalk from 'chalk'
 
 export function menuUtama() {
     console.clear();
-    async function choice() {
-        while (true) {
-            banner();
-            console.log("[+] Selamat datang User")
-            console.log("[1] Planned")
-            console.log("[2] Task")
-            console.log("[3] Profile")
-            console.log("----------------------------")
+    while (true) {
+        banner();
+        console.log("[+] Selamat datang User")
+        console.log("[1] Planned")
+        console.log("[2] Task")
+        console.log("[3] Profile")
+        console.log("----------------------------")
 
-            let pilihan = prompt("Pilih menu: ")
+        let pilihan = prompt("Pilih menu: ")
 
-            if (pilihan == "1") {
-                menuPlanned()
-            }
-            else if (pilihan == "2") {
-                break
-            }
-            else if (pilihan == "3") {
-                break
-            }
-            else {
-                console.log(chalk.red("=> Inputan tidak valid"));
-                await sleep(1000);
-                console.clear()
-            }
+        if (pilihan == "1") {
+            menuPlanned()
+        }
+        else if (pilihan == "2") {
+            break
+        }
+        else if (pilihan == "3") {
+            break
+        }
+        else {
+            console.log(chalk.red("=> Inputan tidak valid"));
+            prompt("Tekan Enter untuk melanjutkan")
+            console.clear()
         }
     }
-    choice()
 };
 menuUtama()
