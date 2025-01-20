@@ -24,7 +24,7 @@ export function displayPlanned() {
     console.log(header);
     console.log(separator);
     for (let i = 0; i < planned.length; i++) {
-        console.log(chalk.green(`|${(i + 1).toString().padEnd(2)}| ${planned[i][0].padEnd(30)} | ${planned[i][1].padEnd(2)}/${planned[i][2].padEnd(13)}/${planned[i][3].padEnd(4)} | ${planned[i][4].padEnd(5)} |`));
+        console.log(chalk.green(`|${(i + 1).toString().padEnd(2)}| ${String(planned[i][0].padEnd(30))} | ${String(planned[i][1].padEnd(2))}/${String(planned[i][2].padEnd(13))}/${String(planned[i][3].padEnd(4))} | ${String(planned[i][4].padEnd(5))} |`));
     }
     console.log(separator);
 }
