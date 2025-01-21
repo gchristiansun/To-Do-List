@@ -365,6 +365,9 @@ export function menuPlanned() {
                                     }
                                 }
                             }
+                            else if (editDate == ">") {
+                                return menuPlanned()
+                            }
                             else {
                                 console.log(chalk.red("Inputan tidak valid"));
                                 prompt("=> Tekan Enter untuk melanjutkan")
