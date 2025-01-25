@@ -4,22 +4,12 @@ import { dataUser } from "./globalVariabel.js";
 import { main } from "./main.js"; 
 import chalk from "chalk";
 
-function register(username, email, password) {
-  var userExists = dataUser.some(
-    (user) => user[0] === username || user[1] === email
-  );
-
-  if (userExists) {
-    console.clear();
-    banner();
-    console.log("\n")
-    console.log(chalk.red.bold("=> The username or email \n   already exists. Please \n   use a different one."))
-    console.log("\n")
-    prompt("Tekan Enter untuk melanjutkan")
-    console.clear()
-    menuRegistrasi()
-  } else {
-    dataUser.push([ username, email, password ]);
+function register(username, email, password, planned, task) {
+  // var userExists = dataUser.some(
+  //   (user) => user[0] === username || user[1] === email
+  // );
+  if (dataUser.length == 0) {
+    dataUser.push({ username, email, password, planned });
     console.clear();
     banner();
     console.log("\n")
@@ -27,7 +17,30 @@ function register(username, email, password) {
     console.log("\n")
     prompt("Tekan Enter untuk melanjutkan")
     console.clear()
-    return main()
+    main()
+  } else {
+    for (let i = 0; i < dataUser.length; i++) {
+      if (dataUser[i].username === username || dataUser[i].email === email) {
+        console.clear();
+        banner();
+        console.log("\n")
+        console.log(chalk.red.bold("=> The username or email \n   already exists. Please \n   use a different one."))
+        console.log("\n")
+        prompt("Tekan Enter untuk melanjutkan")
+        console.clear()
+        menuRegistrasi()
+      } else {
+        dataUser.push({ username, email, password, planned, task });
+        console.clear();
+        banner();
+        console.log("\n")
+        console.log(`=> Registration successful! \n   Welcome, ${chalk.cyan(username)}`)
+        console.log("\n")
+        prompt("Tekan Enter untuk melanjutkan")
+        console.clear()
+        main()
+      }
+    }
   }
 }
 
@@ -86,7 +99,7 @@ export function menuRegistrasi() {
       prompt("=> Tekan Enter untuk melanjutkan");
       console.clear();
       banner();
-      console.log("- Menu Regsitrasi")
+      console.log("Menu Regsitrasi")
       console.log("[>] Kembali")
       console.log("- Masukkan username: " + username);
     }
@@ -141,6 +154,8 @@ export function menuRegistrasi() {
       console.log("- Masukkan email: " + email);
     }
     else if (typeof password == "string") {
+      var planned = [];
+      var task = [];
       break;
     }
     else {
@@ -154,5 +169,5 @@ export function menuRegistrasi() {
       console.log("- Masukkan email: " + email);
     }
   }
-  register(username, email, password);
+  register(username, email, password, planned, task);
 };

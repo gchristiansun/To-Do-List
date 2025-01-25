@@ -3,8 +3,9 @@ import {prompt} from './globalVariabel.js';
 import {menuRegistrasi} from './menuRegistrasi.js';
 import {menuLogin} from "./menuLogin.js"
 import chalk from 'chalk';
+import { sectionUser, status } from './globalVariabel.js';
 
-// banner();
+
 export function main() {
     console.clear();
     banner();

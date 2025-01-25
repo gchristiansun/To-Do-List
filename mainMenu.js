@@ -3,6 +3,10 @@ import { prompt } from "./globalVariabel.js";
 import { menuPlanned } from "./menuPlanned.js";
 import { userCurrent } from "./globalVariabel.js";
 import chalk from "chalk";
+import {profile} from "./menuProfile.js"
+import {dataUser} from "./globalVariabel.js"
+import { sectionLogout } from "./globalVariabel.js";
+import { sectionUser, status } from "./globalVariabel.js";
 
 // function menuUtama() {
 //     console.log("[+] Selamat datang User")
@@ -29,7 +33,8 @@ export function menuUtama() {
     } else if (pilihan == "2") {
       break;
     } else if (pilihan == "3") {
-      break;
+      // sectionLogout();
+      profile()
     } else {
       console.log(chalk.red("=> Inputan tidak valid"));
       prompt("Tekan Enter untuk melanjutkan");

@@ -6,28 +6,38 @@ import {sectionUser} from "./globalVariabel.js";
 import {sectionLogin} from "./globalVariabel.js";
 import chalk from "chalk";
 
-function login(username, email, password, dataUser) {
-  var user = dataUser.find(
-    (user) => user[0] === username && user[1] === email && user[2] === password
-  );
-
-  if (user) {
-    console.clear()
-    banner()
-    console.log("\n")
-    console.log(`=> Login successful! \n   Welcome ${chalk.cyan(username)}`)
-    console.log("\n")
-    prompt("Tekan Enter untuk melajutkan")
-    console.clear()
-    sectionUser.user = username
-    sectionUser.email = email
-    sectionUser.password = password
-    sectionLogin()
-  } else {
+export var indexUserCurrent;
+let userfind = false
+function login(username, email, password) {
+  if (dataUser.length == 0) {
     console.log(chalk.red("=> Username or password incorrect"))
     prompt("Tekan Enter untuk melanjutkan")
     console.clear()
     return menuLogin()
+  } else {
+    for (let i = 0; i < dataUser.length; i++) {
+      if (dataUser[i].username === username && dataUser[i].email === email && dataUser[i].password === password) {
+        indexUserCurrent = i
+        userfind = true
+        console.clear()
+        banner()
+        console.log("\n")
+        console.log(`=> Login successful! \n   Welcome ${chalk.cyan(username)}`)
+        console.log("\n")
+        prompt("Tekan Enter untuk melajutkan")
+        console.clear()
+        sectionUser.user = username
+        sectionUser.email = email
+        sectionUser.password = password
+        sectionLogin()
+      }
+    }
+    if (userfind == false) {
+      console.log(chalk.red("=> Username or password incorrect"))
+      prompt("Tekan Enter untuk melanjutkan")
+      console.clear()
+      return menuLogin()
+    }
   }
 }
 
@@ -51,7 +61,7 @@ export function menuLogin() {
   if (password == ">") {
     return main();
   }
-  login(username, email, password, dataUser)
+  login(username, email, password)
 
 }
 
