@@ -9,7 +9,7 @@ function register(username, email, password, planned, task) {
   //   (user) => user[0] === username || user[1] === email
   // );
   if (dataUser.length == 0) {
-    dataUser.push({ username, email, password, planned });
+    dataUser.push({ username, email, password, planned, task });
     console.clear();
     banner();
     console.log("\n")
